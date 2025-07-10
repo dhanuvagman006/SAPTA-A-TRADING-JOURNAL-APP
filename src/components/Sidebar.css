@@ -1,0 +1,194 @@
+.sidebar {
+  width: 320px;
+  height: 100vh;
+  background: linear-gradient(180deg, #1e1e2e 0%, #2d2d44 50%, #1a1a2e 100%);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(124, 124, 140, 0.2);
+  color: #e2e8f0;
+  padding: 24px;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #6c5ce7, transparent);
+}
+
+.sidebar-header {
+  margin-bottom: 32px;
+  text-align: center;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.sidebar-header h2 {
+  margin: 0 0 12px 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sidebar-header p {
+  margin: 0;
+  opacity: 0.8;
+  font-size: 0.95rem;
+  color: #cbd5e0;
+}
+
+.journal-list {
+  flex: 1;
+  margin-bottom: 24px;
+}
+
+.journal-list h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #f7fafc;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.journal-list h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+  border-radius: 1px;
+}
+
+.no-journals {
+  text-align: center;
+  opacity: 0.6;
+  font-style: italic;
+  padding: 32px 16px;
+  background: rgba(108, 92, 231, 0.1);
+  border-radius: 12px;
+  border: 1px dashed rgba(108, 92, 231, 0.3);
+  color: #cbd5e0;
+}
+
+.journal-item {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.journal-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(108, 92, 231, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.journal-item:hover::before {
+  left: 100%;
+}
+
+.journal-item:hover {
+  background: rgba(108, 92, 231, 0.15);
+  border-color: rgba(108, 92, 231, 0.4);
+  transform: translateX(6px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(108, 92, 231, 0.2);
+}
+
+.journal-item.active {
+  background: rgba(108, 92, 231, 0.2);
+  border-color: #6c5ce7;
+  box-shadow: 0 4px 20px rgba(108, 92, 231, 0.3);
+}
+
+.journal-date {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-bottom: 6px;
+  color: #a0aec0;
+  font-weight: 500;
+}
+
+.journal-preview {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #f7fafc;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.sidebar-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 24px;
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+.trading-stats {
+  background: rgba(108, 92, 231, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid rgba(108, 92, 231, 0.2);
+}
+
+.trading-stats h4 {
+  margin: 0 0 16px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f7fafc;
+}
+
+.stat-item {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #cbd5e0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-item span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 280px;
+    padding: 20px;
+  }
+  
+  .sidebar-header h2 {
+    font-size: 1.4rem;
+  }
+  
+  .journal-item {
+    padding: 14px;
+  }
+}
